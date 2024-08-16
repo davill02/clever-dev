@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  app:
+    image: testtask:v3
+    build:
+      context: .
+      dockerfile: dockerfile
+
+    container_name: api
+    depends_on:
+      - testdb
+      - mockoon
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://testdb:5432/compose-postgres
+      - SPRING_DATASOURCE_USERNAME=compose-postgres
+      - SPRING_DATASOURCE_PASSWORD=compose-postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SERVER_PORT=8080
+      - POST_ALL_CLIENTS=http://mockoon:3001/clients
+      - POST_ALL_NOTES_FOR_CLIENT=http://mockoon:3001/notes
+    ports:
+      - 8080:8080
+
+  testdb:
+    image: 'postgres:13.1-alpine'
+    container_name: testdb
+    environment:
+      - POSTGRES_USER=compose-postgres
+      - POSTGRES_PASSWORD=compose-postgres
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  mockoon:
+    image: mockoon/cli:latest
+    volumes:
+      - type: bind
+        source: ./mock.json
+        target: /mock
+    command: --data ./mock

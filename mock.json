@@ -1,0 +1,234 @@
+{
+  "uuid": "ba04edd8-b977-4ead-b31d-51b9ff618e23",
+  "lastMigration": 32,
+  "name": "Test",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "758a3af9-5fc1-4745-b05c-75637151ee50",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "clients",
+      "responses": [
+        {
+          "uuid": "b45a4c83-229f-4fee-8774-43841a21e94e",
+          "body": "[\n  {\n    \"agency\": \"vhh4\",\n    \"guid\": \"A1\",\n    \"firstName\": \"A1\",\n    \"lastName\": \"Abr\",\n    \"dob\": \"10-15-1999\",\n    \"createdDateTime\": \"2021-11-15 11:51:59\"\n  },\n  {\n    \"agency\": \"vhh4\",\n    \"guid\": \"A2\",\n    \"firstName\": \"A2\",\n    \"lastName\": \"Abr\",\n    \"dob\": \"10-15-1999\",\n    \"createdDateTime\": \"2021-11-15 11:51:59\"\n  },\n  {\n    \"agency\": \"vhh5\",\n    \"guid\": \"A3\",\n    \"firstName\": \"A3\",\n    \"lastName\": \"Abr\",\n    \"dob\": \"10-15-1999\",\n    \"createdDateTime\": \"2021-11-15 11:51:59\"\n  },\n  {\n    \"agency\": \"vhh4\",\n    \"guid\": \"A4\",\n    \"firstName\": \"A4\",\n    \"lastName\": \"Abr\",\n    \"dob\": \"10-15-1999\",\n    \"createdDateTime\": \"2021-11-15 11:51:59\"\n  },\n  {\n    \"agency\": \"vhh4\",\n    \"guid\": \"A5\",\n    \"firstName\": \"A5\",\n    \"lastName\": \"Abr\",\n    \"dob\": \"10-15-1999\",\n    \"createdDateTime\": \"2021-11-15 11:51:59\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "8d4e18ce-d886-4280-8a17-d42ff617ff13",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "notes",
+      "responses": [
+        {
+          "uuid": "3e5c24e9-b5e2-434b-bdae-5b6604d505a5",
+          "body": "[\n  {\n    \"comments\": \"COMMENT3\",\n    \"guid\": \"A4NOTE3\",\n    \"modifiedDateTime\": \"2024-11-15 11:51:59\",\n    \"clientGuid\": \"A4\",\n    \"datetime\": \"2021-11-15 11:51:59\",\n    \"loggedUser\": \"SFD\",\n    \"createdDateTime\": \"2021-11-15 11:51:59\"\n  },\n  {\n    \"comments\": \"COMMENT1\",\n    \"guid\": \"A4NOTE1\",\n    \"modifiedDateTime\": \"2021-11-15 11:51:59\",\n    \"clientGuid\": \"A4\",\n    \"datetime\": \"2021-11-15 11:51:59\",\n    \"loggedUser\": \"SFD\",\n    \"createdDateTime\": \"2021-11-15 11:51:59\"\n  },\n  {\n    \"comments\": \"COMMENT2\",\n    \"guid\": \"A4NOTE2\",\n    \"modifiedDateTime\": \"2021-11-15 11:51:59\",\n    \"clientGuid\": \"A4\",\n    \"datetime\": \"2021-11-15 11:51:59\",\n    \"loggedUser\": \"SDFSF\",\n    \"createdDateTime\": \"2021-11-15 11:51:59\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.agency",
+              "value": "vhh4",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "$.clientGuid",
+              "value": "A4",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "$.dateTo",
+              "value": "2024-08-16",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "0870d483-1fbd-45cb-8c40-57b1bcf53bcc",
+          "body": "[\r\n    {\r\n        \"comments\": \"COMMENT3\",\r\n        \"guid\": \"A3NOTE3\",\r\n        \"modifiedDateTime\": \"2024-12-30 11:51:59\",\r\n        \"clientGuid\": \"A3\",\r\n        \"datetime\": \"2021-11-15 11:51:59\",\r\n        \"loggedUser\": \"asdfss\",\r\n        \"createdDateTime\": \"2021-11-15 11:51:59\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.agency",
+              "value": "vhh5",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "$.clientGuid",
+              "value": "A3",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "b683d6e4-27e5-4715-8337-4488c0c7dafb",
+          "body": "[\r\n    {\r\n        \"comments\": \"COMMENT1\",\r\n        \"guid\": \"A1NOTE1\",\r\n        \"modifiedDateTime\": \"2021-11-15 11:51:59\",\r\n        \"clientGuid\": \"A1\",\r\n        \"datetime\": \"2021-11-15 11:51:59\",\r\n        \"loggedUser\": \"asdfss\",\r\n        \"createdDateTime\": \"2021-11-15 11:51:59\"\r\n    },\r\n    {\r\n        \"comments\": \"COMMENT2\",\r\n        \"guid\": \"A1NOTE2\",\r\n        \"modifiedDateTime\": \"2021-11-15 11:51:59\",\r\n        \"clientGuid\": \"A1\",\r\n        \"datetime\": \"2021-11-15 11:51:59\",\r\n        \"loggedUser\": \"FSD\",\r\n        \"createdDateTime\": \"2021-11-15 11:51:59\"\r\n    }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.agency",
+              "value": "vhh4",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "$.clientGuid",
+              "value": "A1",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "cb5e27ca-1b96-4c94-9b3b-bdc57d5b8861",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 404,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "758a3af9-5fc1-4745-b05c-75637151ee50"
+    },
+    {
+      "type": "route",
+      "uuid": "8d4e18ce-d886-4280-8a17-d42ff617ff13"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}
