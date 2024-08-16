@@ -47,7 +47,7 @@ public class DefaultImportService implements ImportService {
     private String postAllNotesForClientsUri;
 
     @Override
-    @Scheduled(cron = " 00 */1 * * * * ")
+    @Scheduled(cron = " 00 15 */2 * * * ")
     public void importData() {
         List<OldSystemClientInfo> oldPatients = collectAllPatients();
         List<Map.Entry<OldSystemClientInfo, PatientProfile>> filteredPatients = filterService

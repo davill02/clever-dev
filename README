@@ -1,0 +1,25 @@
+
+# CleverDev task
+
+- Create cron job using Spring Boot that import data from old system to another based on rules.
+
+
+
+## Deployment
+
+Prerequisites: docker
+
+In project location run next command
+```bash
+  docker compose up
+```
+
+
+## Implementation
+ - Cron job functionality is based on @Scheduled annotation
+ - For old system server is mock server based Mockoon cli that uses json file with rules how to respond on paticular request body, headers and path.
+ - Added field "old_guid" to patient_note that corresponds to note guid from old system. Using this field system understands if this note exist in new system.
+ 
+
+
+
